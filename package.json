@@ -12,7 +12,6 @@
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "class-variance-authority": "^0.7.0",
-    "eslint-plugin-mdx": "^3.1.5",
     "framer-motion": "^11.11.13",
     "lint-staged": "^15.2.10",
     "next": "15.0.3",
@@ -31,6 +30,7 @@
     "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-mdx": "^3.1.5",
     "eslint-plugin-no-relative-import-paths": "^1.5.5",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-tailwindcss": "^3.17.5",

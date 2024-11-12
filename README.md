@@ -1,6 +1,6 @@
 # Chai Landau Portfolio
 
-This is the repo for my portfolio, chailandau.com.
+This is the repo for my portfolio, [chailandau.com](https://chailandau.com).
 
 ## Tech
 

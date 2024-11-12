@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chai Landau Portfolio
 
-## Getting Started
+This is the repo for my portfolio, chailandau.com.
 
-First, run the development server:
+## Tech
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+-   <strong>[Next.js](https://nextjs.org/) with App Dir</strong> - A React framework for building serverless and static websites
+-   <strong>[TypeScript](https://www.typescriptlang.org/)</strong> - Adds type safeties and reduces potential errors further down the road
+
+## Behind the scenes
+
+Some of the tech used behind the scenes, unnoticed, but useful
+
+-   <strong>[Vercel](https://vercel.com/)</strong> - Cloud platform for deploying web apps (made by the same folks as Next.js). It supports serverless functions and global edge delivery.
+-   <strong>[GitHub Actions](https://github.com/features/actions)</strong> - Runs linting and tests on open pull requests
+-   <strong>Linting</strong> - Comprehensive [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) rule sets automatically run with each commit through [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/okonet/lint-staged).
+-   
+## Getting started
+
+- [Node version](#node-version)
+- [Package manager](#package-manager)
+- [Dependencies](#dependencies)
+- [Environment variables](#environment-variables)
+- [Next.js](#nextjs)
+  - [Development server](#development-server)
+  - [Production server](#production-server)
+- [Deploy](#deploy)
+
+### Node version
+
+This project uses Node v20.17.0.
+
+If you're using nvm, you can run `nvm use` to switch to the right version.
+
+If you don't have nvm installed yet, you can get it [here](https://github.com/nvm-sh/nvm).
+
+### Package manager
+
+This project uses yarn v4.5.0.
+
+Corepack must be enabled for this version -- run `corepack enable` in your terminal.
+
+- **Note**: [On Vercel](https://vercel.com/docs/deployments/configure-a-build#corepack), you must add an `ENABLE_EXPERIMENTAL_COREPACK` variable with a value of `1` to ensure corepack is enabled.
+
+
+### Dependencies
+
+Install all necessary dependencies using yarn.
+
+```
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You will need to add the appropriate variables in an `.env` file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Next.js
 
-## Learn More
+#### Development server
 
-To learn more about Next.js, take a look at the following resources:
+Run the development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Production server
 
-## Deploy on Vercel
+Generate an optimized production build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+yarn build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run the production build locally
+
+```
+yarn start
+```
+
+### Deploy
+
+The repo is connected to Vercel. Anytime the main branch updates, the site will be automatically updated and deployed.
+

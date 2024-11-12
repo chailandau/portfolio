@@ -1,18 +1,35 @@
-import type { Config } from "tailwindcss";
+import containerQueries from '@tailwindcss/container-queries';
+import plugin from 'tailwindcss/plugin';
 
-export default {
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [
+    containerQueries,
+    plugin(function ({ addComponents, addVariant }) {
+      addVariant('interact', ['&:hover', '&:focus-visible']);
+      addVariant('group-interact', ['.group:hover &', '.group:focus-visible &']);
+      addComponents({
+        '.justify-inherit': {
+          justifyContent: 'inherit',
+        },
+        '.object-inherit': {
+          objectFit: 'inherit',
+        },
+      });
+    }),
+  ],
+};
+export default config;

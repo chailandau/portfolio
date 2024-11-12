@@ -12,11 +12,14 @@
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "class-variance-authority": "^0.7.0",
+    "eslint-plugin-mdx": "^3.1.5",
+    "framer-motion": "^11.11.13",
     "lint-staged": "^15.2.10",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "tailwind-merge": "^2.5.4"
+    "tailwind-merge": "^2.5.4",
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@types/eslint-plugin-tailwindcss": "^3.17.0",

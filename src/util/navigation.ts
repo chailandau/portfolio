@@ -8,40 +8,6 @@
  */
 export const getPageSlug = (slug: string) => (slug === 'home' ? '' : slug);
 
-import { useReducedMotion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
-interface AnchorScrollProps {
-  /* The event object. */
-  e: { preventDefault: () => void };
-  /* Section ID to scroll to */
-  sectionId: string;
-}
-
-/**
- * Smooth scrolls to a section with the given ID.
- * If the prefers reduced motion media query is true, will scroll immediately.
- * Otherwise, will scroll smoothly.
- * After scrolling, will update the URL to include the section ID as a hash.
- *
- * @param e - The event object. Pass `e` from an event handler.
- * @param sectionId - The ID of the section to scroll to.
- */
-export const anchorScroll = ({ e, sectionId }: AnchorScrollProps) => {
-  const router = useRouter();
-  const prefersReducedMotion = useReducedMotion() || false;
-
-  e.preventDefault();
-  const anchoredSection = document.getElementById(sectionId);
-  window.scrollTo({
-    top: anchoredSection?.offsetTop,
-    behavior: prefersReducedMotion ? 'auto' : 'smooth',
-  });
-
-  setTimeout(() => {
-    router.push(`#${sectionId}`);
-  }, 1000);
-};
-
 export interface ParsedUrl {
   /** Indicates if the URL is internal */
   isInternal: boolean;
@@ -77,7 +43,7 @@ export const parseUrl = (href: string): ParsedUrl | undefined => {
       href: isInternal ? url.href.split(url.host)[1] : href,
     };
   } catch (error) {
-    console.error('Invalid URL:', href);
+    console.error('Invalid URL:', href, `[[${error}]]`);
 
     return undefined;
   }

@@ -1,11 +1,10 @@
 'use client';
 
 import NextLink from 'next/link';
-import { FC, ReactNode } from 'react';
-
-import styles from './Link.module.scss';
 
 import { parseUrl } from '~/util/navigation';
+
+import type { FC, ReactNode } from 'react';
 
 interface LinkProps {
     /** Link text */
@@ -30,27 +29,25 @@ const Link: FC<LinkProps> = ({
     href: destination,
     anchorLink,
     children,
-    className,
-    underline = true,
+    // underline = true,
     icon = true,
     onClick,
     ariaLabel,
 }) => {
-    const classList = '';
 
     const { href = '', target = undefined, rel = undefined } = parseUrl(destination) || {};
 
     return (
         <NextLink
-            className={classList}
+            className='mr-auto inline-block px-1 font-mono text-sm font-bold text-primary-500'
             href={anchorLink ? `${href}#${anchorLink}` : href}
             rel={rel}
             target={target}
             onClick={onClick}
             aria-label={ariaLabel}
         >
-            <span className={styles['link-text']}>{children}</span>
-            {icon && <span className={styles['link-icon']}>{'>'}</span>}
+            <span className='mr-2.5 inline-block'>{children}</span>
+            {icon && <span className='relative'>{'>'}</span>}
         </NextLink>
     );
 };

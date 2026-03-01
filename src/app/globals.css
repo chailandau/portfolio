@@ -10,6 +10,7 @@
   --color-gray-200: #f3f4ff;
   --color-gray-400: #656a7c;
   --color-gray-500: #555564;
+  --color-gray-700: #282731;
   --color-gray-800: #17171a;
   --color-gray-900: #0a1109;
 
@@ -23,25 +24,48 @@
   --color-pink-500: #ffa2df;
 
   --color-purple-50: #eae7ff;
+  --color-purple-100: #e2def9;
   --color-purple-400: #b4baff;
 }
 
-@theme inline {
-  --color-background: var(--color-purple-50);
-  --color-foreground: var(--color-gray-900);
+:root {
+  --background: var(--color-purple-50);
+  --background-grid: var(--color-purple-100);
+  --foreground: var(--color-gray-900);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: var(--color-gray-900);
+  --background-grid: var(--color-gray-700);
+  --foreground: var(--color-gray-50);
 }
 
+@theme inline {
+  --color-background: var(--background);
+  --color-background-grid: var(--background-grid);
+  --color-foreground: var(--foreground);
+}
+
+html {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--background);
+    z-index: -1;
+    background-image:
+      linear-gradient(to right, var(--background-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--background-grid) 1px, transparent 1px);
+    background-size: 52px 52px;
+    background-position: -26px -26px;
+  }
+}
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
